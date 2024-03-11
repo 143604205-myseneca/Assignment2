@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mysql
+  namespace: database
+  labels:
+    app: mysql
+    component: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql-container
+          image: 092659312972.dkr.ecr.us-east-1.amazonaws.com/soham-assignment2:db1.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: pass
+          ports:
+            - containerPort: 3306
