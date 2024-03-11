@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: mysql
-  namespace: database
+  namespace: sqldb
   labels:
     app: mysql
     component: backend
